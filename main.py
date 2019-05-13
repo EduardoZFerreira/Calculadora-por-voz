@@ -57,3 +57,8 @@ with sr.Microphone() as source:
         else:
             print("Não pude entender a operação solicitada, tente de novo... ")
     print("Encerrando...")
+
+"""
+TODO: Criar método separado para fazer a leitura do áudio, e retornar a string do que foi dito
+
+"""
