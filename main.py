@@ -19,14 +19,7 @@ while continua:
         ans = lis.Listen(language, "Você quer mesmo executar esta operação?")
         print("Você disse " + ans)
         if ans == "sim" or ans == "quero":
-            if op == "adição":
-                result = c.Soma(n1, n2)
-            elif op == "subtração":
-                result = c.Subtracao(n1, n2)
-            elif op == "multiplicação":
-                result = c.Multiplicacao(n1, n2)
-            elif op == "divisão":
-                result = c.Divisao(n1, n2)
+            result = op == "adição" ? c.Soma(n1, n2) : (op == "subtração" ? c.Subtracao(n1, n2) : (op == "multiplicação" ? c.Multiplicacao(n1, n2) : (op == "divisão" ? c.Divisao(n1, n2) : "ERROR")))
             print("O resultado é " + str(result))
             novoAns = lis.Listen(language, "Deseja executar uma nova operação? ")
             print("Você disse " + novoAns)  
