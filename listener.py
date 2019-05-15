@@ -1,14 +1,22 @@
 import speech_recognition as sr
 
-r = sr.Recognizer()
-
-def Listen(lang, message):
+def Calibrate():
     with sr.Microphone() as source:
         try:
-            r.adjust_for_ambient_noise(source, duration=1)
+            r = sr.Recognizer()
+            r.adjust_for_ambient_noise(source, duration=5)
+            return r
         except:
-            print("Não pude calibrar o microfone")
+            return "erro"
+
+
+def Listen(lang, message, r):
+    with sr.Microphone() as source:   
         print(message)
         audio = r.listen(source)
         print("Analisando...")
-        return r.recognize_google(audio, language=lang) 
+        try:
+            return r.recognize_google(audio, language=lang) 
+        except:
+            return "Não pude entender o que foi dito..."
+        
